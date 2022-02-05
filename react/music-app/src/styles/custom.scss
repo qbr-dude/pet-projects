@@ -1,0 +1,59 @@
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap');
+
+// Default variable overrides
+
+$font-family-base: 'Archivo';
+
+@import './colors.scss';
+
+$box-shadow: 0 .5rem 1.5rem #F64C72;
+
+// Required
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+//variables
+$text-color-main: #FFF;
+$text-color-secd: #F64C72;
+$text-color-hover: $indigo-500;
+
+
+//styles
+.header-label {
+    color: $text-color-secd;
+}
+
+.nav-link-span {
+    color: $text-color-main;
+
+    &:hover {
+        color: $text-color-secd;
+    }
+}
+
+.bg-song-card {
+    background-color: map-get($theme-colors, "sec") !important;
+    transition: all .2s;
+    cursor: pointer;
+
+    .author-link {
+        text-decoration: none;
+        color: white;
+        
+        &:hover {
+            text-shadow: 0 2px 7px $text-color-secd;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 0 10px $text-color-secd;
+    }
+}
+
+.bg-side-nav {
+    background-color: rgba(246, 76, 113, 0.6);    
+    // filter: ;
+}
