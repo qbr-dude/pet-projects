@@ -15,7 +15,7 @@ const MainFrame = ({ songList, songChoice }) => {
     }
 
     return (
-        <Row md="3" xl="6" className="mx-4 mt-4">
+        <Row md="3" xl="4" xxl="6" className="mx-4 mt-4">
             {songList.map(song =>
                 <Col key={song.id} className='my-3'>
                     <SongCard info={song} click={cardClick} />

@@ -3,23 +3,32 @@ import Header from "./compnts/header/Header";
 import SideNavigation from "./compnts/side-nav/Side-Navigation";
 import MainFrame from './compnts/main-frame/main-frame';
 import PlayBar from "./compnts/play-bar/play-bar";
-import SpotifyService from "./API/spotify-servise";
+import SpotifyService from "./API/spotify/spotify-api";
+import SpotifyAuth from "./API/spotify/spotify-auth";
 import { useEffect, useState } from "react";
 
-const ids = '7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B'; //for sample
 
 function App() {
   const [songList, setSongList] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
+  const [accessToken, setAccessToken] = useState(null);
 
   useEffect(() => {
-    fetchTracks();
+    handleAuth();
   }, []);
 
+  useEffect(() => {
+    if (accessToken)
+      fetchTracks();
+  }, [accessToken]);
 
+  async function handleAuth() {
+    const token = await SpotifyAuth.getAccessToken();
+    setAccessToken(token);
+  }
 
   async function fetchTracks() {
-    const tracks = await SpotifyService.getNewReleases();
+    const tracks = await SpotifyService.getNewReleases(accessToken);
     setSongList(tracks);
   }
 
