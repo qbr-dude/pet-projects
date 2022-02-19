@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Container, Col, Image, ProgressBar } from 'react-bootstrap';
-import { writeArtists } from '../../helpers/song-helders';
+import { writeArtists } from '../../helpers/song-helpers';
 import PlayButtons from './play-buttons';
 import PlayInfo from './play-info';
 
 const PlayBar = ({ song }) => {
     const [isShown, setIsShown] = useState(false);
     const [isPlays, setIsPlays] = useState(false);
-    const [songTime, setSongTime] = useState(0); //temporary, for example
     const [currentSong, setCurrentSong] = useState('');
 
     useEffect(() => {
-        let counter = null;
         if (song) {
             setCurrentSong(handleSongInfo(song));
             setIsShown(true);
-
-            counter = setInterval(() => {
-                setSongTime(time => time + 1);
-            }, 1000);
-
-            if (counter === 200) {
-                clearInterval(counter);
-            }
         }
-
-        return () => clearInterval(counter);
     }, [song]);
 
     // console.log(currentSong);
@@ -36,7 +24,7 @@ const PlayBar = ({ song }) => {
                 <Row>
                     <Col className='p-0'>
                         <audio src='' />
-                        <ProgressBar animated={(!isPlays) ? true : false} now={songTime} max='200' />
+                        <ProgressBar animated={(!isPlays) ? true : false} now='50' max='200' />
                     </Col>
                 </Row>
                 <Row className="justify-content-center align-items-center text-white mt-2">
@@ -62,9 +50,8 @@ const PlayBar = ({ song }) => {
 }
 
 function handleSongInfo(song) {
-    let temp = song;
-    temp.authors = writeArtists(song.authors);
-    return temp;
+    let authors = writeArtists(song.authors, 'text');
+    return { ...song, authors }; //make 'song' immutable
 }
 
 export default PlayBar;

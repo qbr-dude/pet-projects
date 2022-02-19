@@ -6,7 +6,7 @@ const SideNavigation = () => {
         <Nav
             defaultActiveKey="/home"
             onSelect={(selected) => console.log(selected)}
-            className="bg-side-nav flex-column h-100 align-content-center pt-5">
+            className="bg-sec flex-column h-100 align-content-center pt-5">
             <Nav.Item>
                 <Nav.Link href=''><span className='nav-link-span h5'>Library</span></Nav.Link>
             </Nav.Item>

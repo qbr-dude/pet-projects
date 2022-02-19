@@ -9,7 +9,7 @@ const PlayInfo = ({ currentSong }) => {
             </div>
             <div className='d-flex flex-column mx-4'>
                 <span className="fs-5 bar-song-label">{currentSong.name}</span>
-                <span className="fs-6">{currentSong.authors} - 2 min</span>
+                <span className="fs-6 text-truncate">{currentSong.authors}</span>
             </div>
         </div>
     );

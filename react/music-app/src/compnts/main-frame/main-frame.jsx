@@ -1,9 +1,20 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import SongCard from './song-card';
+import { useState, useEffect } from 'react';
 
 
 const MainFrame = ({ songList, songChoice }) => {
+
+    const [songs, setSongs] = useState([]);
+
+    /* draw songs once */
+    useEffect(() => {
+        setSongs(songList.map(song =>
+            <Col key={song.id} className='my-3'>
+                <SongCard info={song} click={cardClick} />
+            </Col>))
+    }, [songList]);
 
     function cardClick(id, target) {
         if (target.classList.contains('author-link'))
@@ -16,10 +27,7 @@ const MainFrame = ({ songList, songChoice }) => {
 
     return (
         <Row md="3" xl="4" xxl="6" className="mx-4 mt-4">
-            {songList.map(song =>
-                <Col key={song.id} className='my-3'>
-                    <SongCard info={song} click={cardClick} />
-                </Col>)}
+            {songs}
         </Row>
     );
 }

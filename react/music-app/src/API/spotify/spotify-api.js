@@ -57,5 +57,21 @@ export default class SpotifyService {
             return [];
         }
     }
+
+    static async getArtistById(access_token, id) {
+        try {
+            const response = await axios.get(`https://api.spotify.com/v1/artists/${id}`, {
+                headers: {
+                    'Authorization': access_token,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                }
+            });
+
+            console.log(response.data);
+        } catch (error) {
+
+        }
+    }
 }
 
