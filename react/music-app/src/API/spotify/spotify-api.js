@@ -25,7 +25,7 @@ export default class SpotifyService {
     //     }
     // }
 
-    static async getNewReleases(access_token) {
+    static async getNewReleases(access_token) { // truncated functionality, used as example
         try {
             const response = await axios.get(`https://api.spotify.com/v1/browse/new-releases`, {
                 headers: {
@@ -35,12 +35,12 @@ export default class SpotifyService {
                 }
             });
             const json = response.data.albums.items.map((item) => {
-                if (item.album_type == 'single') {
+                if (item.album_type === 'single') {
                     return {
                         id: item.id,
                         name: item.name,
                         images: item.images,
-                        authors: item.artists.map((artist) => {
+                        artists: item.artists.map((artist) => {
                             return ({
                                 name: artist.name,
                                 href: artist.href,
@@ -49,7 +49,7 @@ export default class SpotifyService {
                         }),
                     }
                 }
-            }).filter((item) => item != undefined);
+            }).filter((item) => item !== undefined);
 
             return json;
         } catch (e) {
@@ -68,9 +68,27 @@ export default class SpotifyService {
                 }
             });
 
-            console.log(response.data);
+            return response.data;
         } catch (error) {
+            console.log(error);
+        }
+    }
 
+    static async getArtistTopTracks(access_token, id) {
+        try {
+            const response = await axios.get(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=ES`, {
+                headers: {
+                    'Authorization': access_token,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                }
+            });
+
+            const json = response.data.tracks;
+
+            return json;
+        } catch (error) {
+            console.log(error);
         }
     }
 }

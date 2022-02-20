@@ -22,6 +22,19 @@ $text-color-secd: #cdbea7;
 //styles
 .header-label {
     color: $text-color-main;
+    text-decoration: none;
+
+    &:hover {
+        color: $text-color-main;
+    }
+}
+
+.main-label-color {
+    color: $text-color-main;
+}
+
+.second-label-color {
+    color: map-get($map: $theme-colors, $key: "sec");
 }
 
 .nav-link-span {

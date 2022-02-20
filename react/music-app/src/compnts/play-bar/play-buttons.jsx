@@ -14,7 +14,7 @@ const PlayButtons = ({ isPlay, toggleHandler }) => {
     }
 
     return (
-        <div>
+        <div className='d-flex'>
             <Button><PreviosIcon width={30} height={30} title="Play previos song" /></Button>
             <Button>{toggleButton(isPlay, togglePlayButton)}</Button>
             <Button><NextIcon width={30} height={30} title="Play next song" /></Button>

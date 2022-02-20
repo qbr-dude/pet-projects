@@ -4,7 +4,7 @@ import SongCard from './song-card';
 import { useState, useEffect } from 'react';
 
 
-const MainFrame = ({ songList, songChoice }) => {
+const SongsGrid = ({ songList, songChoice }) => {
 
     const [songs, setSongs] = useState([]);
 
@@ -17,11 +17,9 @@ const MainFrame = ({ songList, songChoice }) => {
     }, [songList]);
 
     function cardClick(id, target) {
-        if (target.classList.contains('author-link'))
-            console.log(id); // if click on author
-        else {
+        if (!target.classList.contains('author-link')) {
             // if clicked on card currently
-            songChoice(id);
+            songChoice(songList.filter((song) => id === song.id)[0]);
         }
     }
 
@@ -32,4 +30,4 @@ const MainFrame = ({ songList, songChoice }) => {
     );
 }
 
-export default MainFrame;
+export default SongsGrid;

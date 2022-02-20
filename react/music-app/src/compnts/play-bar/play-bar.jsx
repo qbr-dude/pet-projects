@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Container, Col, Image, ProgressBar } from 'react-bootstrap';
+import { Row, Container, Col, ProgressBar } from 'react-bootstrap';
 import { writeArtists } from '../../helpers/song-helpers';
 import PlayButtons from './play-buttons';
 import PlayInfo from './play-info';
@@ -11,12 +11,11 @@ const PlayBar = ({ song }) => {
 
     useEffect(() => {
         if (song) {
+            console.log(song);
             setCurrentSong(handleSongInfo(song));
             setIsShown(true);
         }
     }, [song]);
-
-    // console.log(currentSong);
 
     if (isShown) {
         return (
@@ -32,9 +31,7 @@ const PlayBar = ({ song }) => {
                         <PlayInfo currentSong={currentSong} />
                     </Col>
                     <Col md='auto'>
-                        <div className="d-flex">
-                            <PlayButtons isPlay={isPlays} toggleHandler={setIsPlays} />
-                        </div>
+                        <PlayButtons isPlay={isPlays} toggleHandler={setIsPlays} />
                     </Col>
                     <Col>
                         <div>
@@ -50,8 +47,8 @@ const PlayBar = ({ song }) => {
 }
 
 function handleSongInfo(song) {
-    let authors = writeArtists(song.authors, 'text');
-    return { ...song, authors }; //make 'song' immutable
+    let artists = writeArtists(song.artists, 'text');
+    return { ...song, artists }; //make 'song' immutable
 }
 
 export default PlayBar;

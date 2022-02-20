@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header className='d-flex bg-sec justify-content-center shadow py-2'>
-            <span className='header-label h2'>Music App</span>
+            <Link className='header-label h2' to='/'>Music App</Link>
         </header>
     );
 }

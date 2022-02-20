@@ -8,7 +8,7 @@ const SongCard = ({ info, click }) => {
             <Card.Img variant="top" src={info.images[1].url} />
             <Card.Body>
                 <Card.Title className="fs-5 text-truncate" title={info.name}>{info.name}</Card.Title>
-                <Card.Subtitle className="fs-6 text-truncate">{writeArtists(info.authors, 'link')}</Card.Subtitle>
+                <Card.Subtitle className="fs-6 text-truncate">{writeArtists(info.artists, 'link')}</Card.Subtitle>
             </Card.Body>
         </Card >
     );

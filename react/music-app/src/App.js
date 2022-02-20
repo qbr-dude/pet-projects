@@ -1,15 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "./compnts/header/Header";
-import SideNavigation from "./compnts/side-nav/Side-Navigation";
-import MainFrame from './compnts/main-frame/main-frame';
 import PlayBar from "./compnts/play-bar/play-bar";
-import SpotifyService from "./API/spotify/spotify-api";
 import SpotifyAuth from "./API/spotify/spotify-auth";
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import NewReleases from "./pages/new-releases";
+import Artists from "./pages/artists";
 
 
 function App() {
-  const [songList, setSongList] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
   const [accessToken, setAccessToken] = useState(null);
 
@@ -17,40 +16,29 @@ function App() {
     handleAuth();
   }, []);
 
-  useEffect(() => {
-    if (accessToken)
-      fetchTracks();
-  }, [accessToken]);
-
   async function handleAuth() {
     const token = await SpotifyAuth.getAccessToken();
     setAccessToken(token);
   }
 
-  async function fetchTracks() {
-    const tracks = await SpotifyService.getNewReleases(accessToken);
-    setSongList(tracks);
-  }
-
-  function handleSongChoice(id) {
-    setCurrentSong(songList.filter((song) => id === song.id)[0]);
+  function handleSongChoice(song) {
+    setCurrentSong(song);
   }
 
   return (
-    <Container fluid className="bg-main h-100">
-      <Row>
-        <Header />
-      </Row>
-      <Row className="d-flex h-100">
-        <Col md="2" className="px-0">
-          <SideNavigation />
-        </Col>
-        <Col>
-          <MainFrame songList={songList} songChoice={handleSongChoice} />
-        </Col>
-      </Row>
-      <PlayBar song={currentSong} />
-    </Container>
+    <Router>
+      <Container fluid className="bg-main h-100">
+        <Row>
+          <Header />
+        </Row>
+        <Routes>
+          <Route exact path="/new-releases" element={<NewReleases token={accessToken} handleSongChoice={handleSongChoice} />} />
+          <Route exact path="/artists/:id" element={<Artists token={accessToken} handleSongChoice={handleSongChoice} />} />
+          <Route exact path="/" element={<Navigate exact to="new-releases" />} />
+        </Routes>
+        <PlayBar song={currentSong} />
+      </Container>
+    </Router>
   );
 }
 
