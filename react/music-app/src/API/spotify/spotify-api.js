@@ -25,9 +25,10 @@ export default class SpotifyService {
     //     }
     // }
 
-    static async getNewReleases(access_token) { // truncated functionality, used as example
+    static async getNewReleases(access_token, offset) { // truncated functionality, used as example
         try {
-            const response = await axios.get(`https://api.spotify.com/v1/browse/new-releases`, {
+            const off_value = offset || 0;
+            const response = await axios.get(`https://api.spotify.com/v1/browse/new-releases?offset=${off_value}`, {
                 headers: {
                     'Authorization': access_token,
                     'Content-Type': 'application/json',

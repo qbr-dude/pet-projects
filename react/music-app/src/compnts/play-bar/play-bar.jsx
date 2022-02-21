@@ -11,7 +11,6 @@ const PlayBar = ({ song }) => {
 
     useEffect(() => {
         if (song) {
-            console.log(song);
             setCurrentSong(handleSongInfo(song));
             setIsShown(true);
         }

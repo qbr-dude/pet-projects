@@ -9,7 +9,7 @@ const SongStrip = ({ info, click }) => {
     }
 
     return (
-        <Row className='bg-sec align-items-center my-2' onClick={handleClickOnStrip}>
+        <Row className='bg-sec align-items-center my-2 song-strip' onClick={handleClickOnStrip}>
             <Col className='p-2' md='1' >
                 <Image src={info.album.images[2].url} width={info.album.images[2].width} height={info.album.images[2].height} />
             </Col >
