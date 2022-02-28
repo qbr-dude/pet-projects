@@ -53,6 +53,20 @@ $text-color-secd: #cdbea7;
     }
 }
 
+.releases {
+    transition: all 0.5s;
+
+    &.loading {
+        background: rgb(195, 149, 87);
+        background: -moz-linear-gradient(306deg, rgba(195, 149, 87, 1) 0%, rgba(205, 190, 167, 1) 48%);
+        background: -webkit-linear-gradient(306deg, rgba(195, 149, 87, 1) 0%, rgba(205, 190, 167, 1) 48%);
+        background: linear-gradient(306deg, rgba(195, 149, 87, 1) 0%, rgba(205, 190, 167, 1) 48%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c39557",endColorstr="#cdbea7",GradientType=1);
+        background-size: 400% 400%;
+        animation: card-gradient 5s ease infinite;
+    }
+}
+
 .song-card {
     background-color: map-get($theme-colors, "sec") !important;
     transition: all 0.2s;
@@ -60,7 +74,20 @@ $text-color-secd: #cdbea7;
     color: $text-color-main;
 
     &:hover {
-        box-shadow: 0 0 10px map-get($map: $theme-colors, $key: "main");
+        box-shadow: 0 0 15px map-get($map: $theme-colors, $key: "sec");
+    }
+    /*optional*/
+}
+/*optional for loading*/
+@keyframes card-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 

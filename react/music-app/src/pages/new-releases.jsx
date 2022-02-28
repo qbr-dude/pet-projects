@@ -31,7 +31,7 @@ const NewReleases = ({ handleSongChoice }) => {
 
 
     return (
-        <Row className="h-100 min-vh-100">
+        <Row className={"h-100 min-vh-100 releases " + (isLoading ? 'loading' : '')}>
             <Col md="2" className="px-0">
                 <SideNavigation />
             </Col>
