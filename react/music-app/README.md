@@ -1,5 +1,5 @@
-# Music App
+# Music App #
 
 React App with:
-*bootstrap 5;
-*
+* bootstrap 5;
+* SpotifyAPI;
