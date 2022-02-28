@@ -1,25 +1,16 @@
+import { useState } from "react";
 import { Container, Row } from "react-bootstrap";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./compnts/header/Header";
 import PlayBar from "./compnts/play-bar/play-bar";
-import SpotifyAuth from "./API/spotify/spotify-auth";
-import { useEffect, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import AppRouter from "./pages/app-router";
 import { AccessTokenContext } from "./context";
+import { useAuthentication } from "./hooks/useAuthentication";
+import AppRouter from "./pages/app-router";
 
 
 function App() {
   const [currentSong, setCurrentSong] = useState(null);
-  const [accessToken, setAccessToken] = useState(null);
-
-  useEffect(() => {
-    handleAuth();
-  }, []);
-
-  async function handleAuth() {
-    const token = await SpotifyAuth.getAccessToken();
-    setAccessToken(token);
-  }
+  const accessToken = useAuthentication();
 
   function handleSongChoice(song) {
     setCurrentSong(song);
@@ -28,7 +19,7 @@ function App() {
   return (
     <AccessTokenContext.Provider value={{ accessToken }}>
       <Router>
-        <Container fluid className="bg-main h-100">
+        <Container fluid className="bg-main h-100 min-vh-100">
           <Row>
             <Header />
           </Row>

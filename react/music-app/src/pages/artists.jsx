@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Col, Image, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import SpotifyService from '../API/spotify/spotify-api';
@@ -29,8 +29,6 @@ const Artists = ({ handleSongChoice }) => {
     }
 
     if (info) {
-        document.title = info.name + ' - Artist'; //temporary stub
-
         return (
             <Row className='h-100 min-vh-100 justify-content-md-evenly py-5'>
                 <Col md='auto'>

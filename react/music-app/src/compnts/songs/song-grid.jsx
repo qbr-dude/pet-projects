@@ -1,7 +1,6 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 import SongCard from './song-card';
-import { useState, useEffect } from 'react';
 
 
 const SongsGrid = ({ songList, songChoice }) => {
