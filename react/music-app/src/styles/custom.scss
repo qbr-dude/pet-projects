@@ -37,6 +37,15 @@ $text-color-secd: #cdbea7;
     }
 }
 
+.spotify-login {
+    text-decoration: none;
+    background-color: #1db954 !important;
+
+    &:hover {
+        background-color: #1db954bb !important;
+    }
+}
+
 .main-label-color {
     color: $text-color-main;
 }

@@ -3,8 +3,8 @@ import qs from 'qs';
 
 export default class SpotifyAuth {
 
-    static client_secret = '5ff84c5016cb46eb842551e9df91b331';
     static client_id = '3ed87322b34f416ebb50161478d71077';
+    static client_secret = '5ff84c5016cb46eb842551e9df91b331';
 
     static async getAccessToken() {
 
