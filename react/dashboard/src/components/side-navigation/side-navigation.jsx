@@ -1,9 +1,9 @@
 import { Box, Divider } from '@mui/material';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import React from 'react';
 import MainMenu from './main-menu';
-import UserInfo from './user-info';
 import SupportMenu from './support-menu';
+import UserInfo from './user-info';
 
 const StyledHeaderSpan = styled.span`
     font-size: 18px;
@@ -12,25 +12,27 @@ const StyledHeaderSpan = styled.span`
 
 const StyledP = styled.p`
     text-align: justify;
+    color: #6B6C6F;
     font-size: 12px;
 `
 
 
 const SideNavigation = () => {
+    const [currentPage, setCurrentPage] = useState('Buildings');
 
     return (
         <Box sx={{
             display: 'flex', flexDirection: 'column',
             height: 1, minHeight: '100vh',
-            width: 1, maxWidth: 250,
+            width: 1, maxWidth: 270,
             bgcolor: '#2E2E33', color: 'white'
         }}>
             <Box sx={{ p: 2 }}>
-                <StyledHeaderSpan>Buildings</StyledHeaderSpan>
+                <StyledHeaderSpan>{currentPage}</StyledHeaderSpan>
             </Box>
             <Divider light={true} />
             <Box sx={{ flexGrow: 1 }} px={2}>
-                <MainMenu />
+                <MainMenu setHeader={setCurrentPage} />
                 <Divider light={true} />
                 <SupportMenu />
             </Box>
@@ -38,7 +40,7 @@ const SideNavigation = () => {
             <UserInfo />
             <Divider light={true} />
             <Box sx={{ p: 2 }}>
-                <span>&copy; Buildings Ltd. 2018</span>
+                <span style={{ fontSize: 14 }}>&copy; Buildings Ltd. 2018</span>
                 <StyledP>Created with love for the environment. By designers and developers who love to work together in offices!</StyledP>
             </Box>
         </Box>

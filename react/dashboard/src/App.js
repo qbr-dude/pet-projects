@@ -1,14 +1,13 @@
 import SideNavigation from "./components/side-navigation/side-navigation";
 import React from "react";
 import { Box } from "@mui/system";
+import BuildingsPage from "./components/buildings/buidings-page";
 function App() {
-  function pageClick(params) {
-    console.log(params);
-  }
 
   return (
-    <Box sx={{ bgcolor: '#F2F2F2' }}>
+    <Box sx={{ display: 'flex', bgcolor: '#F2F2F2' }}>
       <SideNavigation />
+      <BuildingsPage />
     </Box>
   );
 }
