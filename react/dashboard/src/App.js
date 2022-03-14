@@ -5,7 +5,7 @@ import BuildingsPage from "./components/buildings/buidings-page";
 function App() {
 
   return (
-    <Box sx={{ display: 'flex', bgcolor: '#F2F2F2' }}>
+    <Box sx={{ display: 'flex', bgcolor: '#FFFFFF' }}>
       <SideNavigation />
       <BuildingsPage />
     </Box>

@@ -23,6 +23,7 @@ const MainMenu = ({ setHeader }) => {
 
     return (
         <List>
+            {/* TODO turn off slide down */}
             <ListSubheader sx={{ bgcolor: 'inherit', textTransform: 'uppercase', fontSize: 12, color: '#9EA0A5' }}>Menu</ListSubheader>
             {
                 pages.map((page, index) =>

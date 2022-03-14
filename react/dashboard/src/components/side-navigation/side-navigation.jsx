@@ -1,4 +1,4 @@
-import { Box, Divider } from '@mui/material';
+import { Box, Container, Divider } from '@mui/material';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import MainMenu from './main-menu';
@@ -21,8 +21,9 @@ const SideNavigation = () => {
     const [currentPage, setCurrentPage] = useState('Buildings');
 
     return (
+        // TODO fixed
         <Box sx={{
-            display: 'flex', flexDirection: 'column',
+            display: 'block', flexDirection: 'column',
             height: 1, minHeight: '100vh',
             width: 1, maxWidth: 270,
             bgcolor: '#2E2E33', color: 'white'
