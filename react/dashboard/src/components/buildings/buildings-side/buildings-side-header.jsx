@@ -1,26 +1,25 @@
-import { Box, Button, Divider, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ViewListOutlinedIcon from '@mui/icons-material/ViewListOutlined';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import ViewModuleOutlinedIcon from '@mui/icons-material/ViewModuleOutlined';
-import { styled } from '@mui/material';
-import React, { useState } from 'react';
+import { Box, Divider, styled, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import React from 'react';
 
 const StyledToggleButton = styled(ToggleButton)({
     '&.MuiToggleButton-root': {
-        border: 'none'
+        border: 'none',
+        padding: '5px 10px'
     },
     '&.Mui-selected': {
         backgroundColor: 'transparent',
     }
 })
 
-const BuildingsListHeader = () => {
-    const [displayType, setDisplayType] = useState('list');
+const BuildingsSideHeader = ({ displayType, handle }) => {
 
     function handleDisplaySwitch(event, type) {
         if (type !== null) {
-            setDisplayType(type);
+            handle(type);
         }
     }
 
@@ -39,8 +38,8 @@ const BuildingsListHeader = () => {
                         {displayType === 'list' ? <ViewListIcon /> : <ViewListOutlinedIcon />}
                     </StyledToggleButton>
                     <Divider orientation='vertical' flexItem sx={{ bgcolor: 'rgba(0, 0, 0, .12)' }} />
-                    <StyledToggleButton value='tile'>
-                        {displayType === 'tile' ? <ViewModuleIcon /> : <ViewModuleOutlinedIcon />}
+                    <StyledToggleButton value='grid'>
+                        {displayType === 'grid' ? <ViewModuleIcon /> : <ViewModuleOutlinedIcon />}
                     </StyledToggleButton>
                 </ToggleButtonGroup>
             </Box>
@@ -48,4 +47,4 @@ const BuildingsListHeader = () => {
     );
 }
 
-export default BuildingsListHeader;
+export default BuildingsSideHeader;
