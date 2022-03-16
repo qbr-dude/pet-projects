@@ -39,7 +39,7 @@ const BuildingsHeader = () => {
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <SelectionSort src={types} onChange={handleTypeChange} value={buildType} />
                 <Box sx={{ display: 'flex' }}>
-                    <BuildingsSearch onChange={handleInputChange} value={inputValue} />
+                    <BuildingsSearch onChange={handleInputChange} value={inputValue} placeholder='Type to search...' />
                     <Divider orientation='vertical' flexItem sx={{ mr: 3 }} />
                     <SelectionSort src={languages} value={language} onChange={handleLanguageChange} />
                 </Box>

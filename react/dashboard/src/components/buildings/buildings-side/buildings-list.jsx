@@ -5,7 +5,7 @@ import BuildingsListItem from './buildings-list-item';
 const BuildingsList = () => {
     /* items are drawn as example */
     return (
-        <List disablePadding>
+        <List disablePadding >
             <ListItem sx={{ p: 0 }}>
                 <BuildingsListItem />
             </ListItem>

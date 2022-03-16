@@ -2,7 +2,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { InputBase, styled } from '@mui/material';
 import React from 'react';
 
-const Search = styled('div')(({ theme }) => ({
+const StyledSearch = styled('div')(({ theme }) => ({
     fontSize: '14px',
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -25,21 +25,18 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
     '& .MuiInputBase-input': {
         padding: theme.spacing(1),
         width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '300px'
-        }
     }
 }))
 
-const BuildingsSearch = (props) => {
+const Search = (props) => {
     return (
-        <Search sx={{ mr: 3 }}>
+        <StyledSearch>
             <SearchIconWrapper>
                 <SearchIcon color='disabled' />
             </SearchIconWrapper>
             <StyledInput inputProps={{ 'aria-label': 'search' }} {...props} />
-        </Search>
+        </StyledSearch>
     );
 }
 
-export default BuildingsSearch;
+export default Search;
