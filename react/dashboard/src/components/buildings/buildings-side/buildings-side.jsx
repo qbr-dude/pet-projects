@@ -13,14 +13,24 @@ const StyledScrollBox = styled(Box)({
     scrollbarWidth: 'none',
 })
 
+const list = [
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' },
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' },
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' },
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' },
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' },
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' },
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' },
+    { name: 'Bauhaus Archive', description: '7246 Woodland Rd. Waukesha, WI 53186', pricePerSqm: '75' }
+]
+
 const BuildingsSide = () => {
     const [displayType, setDisplayType] = useState('list');
-    // TODO add styles for selected
     return (
         <Box maxWidth='350px' width='100%'>
             <BuildingsSideHeader displayType={displayType} handle={setDisplayType} />
             <StyledScrollBox>
-                {displayType === 'list' ? <BuildingsList /> : <BuildingsGrid />}
+                {displayType === 'list' ? <BuildingsList list={list} /> : <BuildingsGrid list={list} />}
             </StyledScrollBox>
         </Box>
     );

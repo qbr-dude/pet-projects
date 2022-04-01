@@ -1,10 +1,15 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import React from 'react';
 
-const BuildingsGridItem = () => {
+const BuildingsGridItem = ({ info, cardClick }) => {
+
+    function handleCardClick() {
+        cardClick(info.id)
+    }
+
     return (
         <Card>
-            <CardActionArea sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2 }}>
+            <CardActionArea sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 2 }} onClick={handleCardClick}>
                 <CardMedia
                     component='img'
                     image='imgs/pic.png'
