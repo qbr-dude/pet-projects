@@ -5,7 +5,7 @@ import MenuButton from './menu-button';
 const pages = [
     'Need Help?',
     'Contact Us',
-    'Knoledge Base'
+    'Knowledge Base'
 ]
 
 const SupportMenu = () => {

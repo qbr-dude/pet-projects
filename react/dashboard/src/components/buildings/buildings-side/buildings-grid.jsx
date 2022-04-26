@@ -15,7 +15,7 @@ const BuildingsGrid = ({ list }) => {
     return (
         <Grid container spacing={1}>
             {list.map((item, id) =>
-                <Grid item xs={6}>
+                <Grid item xs={6} key={id}>
                     <BuildingsGridItem info={{ ...item, id }} cardClick={changeCurrentItem} />
                 </Grid>
             )}

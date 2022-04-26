@@ -27,7 +27,7 @@ const list = [
 const BuildingsSide = () => {
     const [displayType, setDisplayType] = useState('list');
     return (
-        <Box maxWidth='350px' width='100%'>
+        <Box maxWidth='350px' minWidth='350px' width='100%'>
             <BuildingsSideHeader displayType={displayType} handle={setDisplayType} />
             <StyledScrollBox>
                 {displayType === 'list' ? <BuildingsList list={list} /> : <BuildingsGrid list={list} />}

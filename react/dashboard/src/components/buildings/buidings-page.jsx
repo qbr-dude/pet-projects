@@ -1,4 +1,4 @@
-import { Box, Divider } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import BuildingsHeader from './buildings-header/buildings-header';
@@ -14,10 +14,9 @@ const BuildingsPage = () => {
             <BuildingsHeader />
             <Box display='flex'>
                 <BuildingsSide />
-                <Divider orientation='vertical' />
                 <BuildingsMainSection />
             </Box>
-        </Box>
+        </Box >
     );
 }
 
