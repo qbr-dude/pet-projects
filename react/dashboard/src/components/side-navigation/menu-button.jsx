@@ -1,6 +1,7 @@
-import { ListItemButton, ListItemText } from '@mui/material';
+import { Link, ListItemButton, ListItemText } from '@mui/material';
 import styled from 'styled-components';
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 const StyledListItemButton = styled(ListItemButton)`
     border-radius: 5px;
@@ -19,7 +20,7 @@ const MenuButton = ({ name, id, current, click }) => {
     }
 
     return (
-        <StyledListItemButton selected={current} onClick={handleButtonClick}>
+        <StyledListItemButton component={RouterLink} to={(`/${name}`).toLowerCase()} selected={current} onClick={handleButtonClick}>
             <ListItemText primary={name} sx={{ fontSize: 14 }} disableTypography />
         </StyledListItemButton>
     );

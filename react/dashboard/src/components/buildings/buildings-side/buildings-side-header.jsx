@@ -37,7 +37,7 @@ const BuildingsSideHeader = ({ displayType, handle }) => {
                     <StyledToggleButton value='list'>
                         {displayType === 'list' ? <ViewListIcon /> : <ViewListOutlinedIcon />}
                     </StyledToggleButton>
-                    <Divider orientation='vertical' flexItem sx={{ bgcolor: 'rgba(0, 0, 0, .12)' }} />
+                    {/* <Divider orientation='vertical' flexItem sx={{ bgcolor: 'rgba(0, 0, 0, .12)' }} />            it works, but gives the error constantly  */}
                     <StyledToggleButton value='grid'>
                         {displayType === 'grid' ? <ViewModuleIcon /> : <ViewModuleOutlinedIcon />}
                     </StyledToggleButton>

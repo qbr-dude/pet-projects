@@ -1,5 +1,5 @@
 const defaultState = {
-    current: 0,
+    current: 1,
 }
 
 export const currentBuildingItemReducer = (state = defaultState, action) => {

@@ -15,8 +15,8 @@ const BuildingsMainPhotos = () => {
         <div>
             <Typography component='span' sx={{ fontSize: '12px', fontWeight: '500', color: '#9EA0A5', textTransform: 'uppercase' }}>All property photos</Typography>
             <ImageList cols={2} rowHeight={100} sx={{ overflow: 'hidden', width: 250, mt: '20px' }}>
-                {images.map((item) => (
-                    <ImageListItem key={item.img} sx={{ width: 120, height: 100 }}>
+                {images.map((item, id) => (
+                    <ImageListItem key={item.img + id} sx={{ width: 120, height: 100 }}>
                         <img
                             src={item.img}
                             srcSet={item.img}

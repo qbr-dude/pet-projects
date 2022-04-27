@@ -1,26 +1,27 @@
 import { Box, Card, CardContent, CardMedia, Grid, Skeleton } from '@mui/material';
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import BuildingsMainInfo from './buildings-main-info';
 import BuildingsMainPhotos from './buildings-main-photos';
 import BuildingsMainProps from './buildings-main-props';
 
 const BuildingsMainSection = () => {
-
-    const dispath = useDispatch();
     const currentItem = useSelector(state => state.current);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             setIsLoading(false);
         }, 1500);
+        return () => {
+            clearTimeout(timeout);
+        }
     }, [currentItem]);
 
     return (
         <Box sx={{ maxHeight: '90vh', flexGrow: 1, top: 75, height: 1, overflow: 'auto', '&::-webkit-scrollbar': { display: 'none' }, scrollbarWidth: 'none', }}> {/* hide scroll bar */}
-            <Card sx={{ p: 2 }} variant="outlined">
+            <Card sx={{ p: 2, borderTop: 'none' }} variant="outlined">
                 {(isLoading) ? <Skeleton variant='rectangle' animation="wave" sx={{ height: 150 }} /> : <CardMedia component='img' image='imgs/item-pic.png' sx={{ maxWidth: '730px', m: '0 auto 10px' }} />}
                 <CardContent>
                     <Grid container columns={{ xs: 4, xl: 12 }} spacing={2}>

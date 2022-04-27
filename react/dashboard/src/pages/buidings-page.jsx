@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import BuildingsHeader from './buildings-header/buildings-header';
-import BuildingsSide from './buildings-side/buildings-side';
-import BuildingsMainSection from './main-section/buildings-main-section';
+import BuildingsHeader from './../components/buildings/buildings-header/buildings-header';
+import BuildingsSide from './../components/buildings/buildings-side/buildings-side';
+import BuildingsMainSection from './../components/buildings/main-section/buildings-main-section';
 
 /*  */
 const BuildingsPage = () => {

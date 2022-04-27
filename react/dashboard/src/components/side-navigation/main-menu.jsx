@@ -1,5 +1,6 @@
 import { List, ListItem, ListSubheader } from '@mui/material';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MenuButton from './menu-button';
 
 const pages = [
@@ -14,10 +15,11 @@ const pages = [
 ]
 
 const MainMenu = ({ setHeader }) => {
-    const [currentPage, setCurrentPage] = useState(1);
+    const currentPage = useSelector(state => state.current);
+    const dispatch = useDispatch();
 
     function handleSettingCurrentPage(id) {
-        setCurrentPage(id);
+        dispatch({ type: 'CHANGE_BUILDING_ITEM', payload: id });
         setHeader(pages[id]);
     }
 

@@ -35,7 +35,7 @@ const BuildingsHeader = () => {
     }
 
     return (
-        <AppBar position='sticky' sx={{ width: 1, boxShadow: 'none', py: '5px', borderBottom: '1px solid #9EA0A5', bgcolor: '#FFFFFF' }}>
+        <AppBar position='sticky' sx={{ width: 1, boxShadow: 'none', py: '5px', borderBottom: '1px solid #9ea0a57d', bgcolor: '#FFFFFF' }}>
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <SelectionSort src={types} onChange={handleTypeChange} value={buildType} />
                 <Box sx={{ display: 'flex' }}>
