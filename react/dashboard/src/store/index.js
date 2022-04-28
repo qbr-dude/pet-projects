@@ -1,5 +1,6 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 import { currentBuildingItemReducer } from "./currentBuildItemReducer";
+import { currentPageReducer } from './currentPageReducer';
 
-
-export const store = createStore(currentBuildingItemReducer);
+const rootReducer = combineReducers({ buildings: currentBuildingItemReducer, pages: currentPageReducer })
+export const store = createStore(rootReducer);

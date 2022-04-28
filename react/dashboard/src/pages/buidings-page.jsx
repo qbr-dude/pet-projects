@@ -7,7 +7,6 @@ import BuildingsMainSection from './../components/buildings/main-section/buildin
 
 /*  */
 const BuildingsPage = () => {
-    const currentItem = useSelector(state => state.current);
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>

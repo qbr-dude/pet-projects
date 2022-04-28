@@ -1,5 +1,5 @@
 import { List, ListItem, ListSubheader } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MenuButton from './menu-button';
 
@@ -15,11 +15,11 @@ const pages = [
 ]
 
 const MainMenu = ({ setHeader }) => {
-    const currentPage = useSelector(state => state.current);
+    const currentPage = useSelector(state => state.pages.page); /* here's an error when reload, resets value to default */
     const dispatch = useDispatch();
 
     function handleSettingCurrentPage(id) {
-        dispatch({ type: 'CHANGE_BUILDING_ITEM', payload: id });
+        dispatch({ type: 'CHANGE_CURRENT_PAGE', payload: id });
         setHeader(pages[id]);
     }
 

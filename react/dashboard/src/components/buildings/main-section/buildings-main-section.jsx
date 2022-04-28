@@ -6,7 +6,7 @@ import BuildingsMainPhotos from './buildings-main-photos';
 import BuildingsMainProps from './buildings-main-props';
 
 const BuildingsMainSection = () => {
-    const currentItem = useSelector(state => state.current);
+    const currentItem = useSelector(state => state.buildings.current);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {

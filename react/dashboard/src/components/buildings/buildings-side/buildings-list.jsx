@@ -7,7 +7,7 @@ import BuildingsListItem from './buildings-list-item';
 const BuildingsList = ({ list }) => {
 
     const dispatch = useDispatch();
-    const currentItem = useSelector(state => state.current);
+    const currentItem = useSelector(state => state.buildings.current);
 
     function changeCurrentItem(id) {
         dispatch({ type: 'CHANGE_BUILDING_ITEM', payload: id });
