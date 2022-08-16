@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+* {
+    font-family: "DM Sans", sans-serif;
+    color: #25396f;
+    font-weight: 500;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+}
